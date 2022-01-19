@@ -83,10 +83,12 @@ module.exports.typeOf = typeOf;
  *first: if theres no array it returns an empty array, if number is undefined
 
  * or NaN it returns the first indexed array, otherwise it returns the first indexed numbers of array
+ 
+ * returns the input number parameter amount of indexes starting with the first.
 
  * @param {array}: The collection over which to iterate.
 
- * @param {number}: number
+ * @param {number}: number of items to be returned
 
  * @returns {any data type}: returns the first element in an array
 
@@ -114,11 +116,13 @@ module.exports.first = first;
 
 /**last: returns the last element in array. if array !array, returns an empty array
 
- * if number isnt given or is NaN it returns the last element in array otherwise returns the last item in array
+ * if number isnt given or is NaN it returns the last element in array otherwise returns the last item in array.
+
+ *  * returns the input number parameter amount of indexes starting with the last.
 
  * @param {array}: collection
 
- * @param {number}: a number
+ * @param {number}: number of indexs to be returned
 
  * @param {function} action: tester function checks if array is array and if number is not null and a positive num or NaN
 
@@ -146,11 +150,11 @@ module.exports.last = last;
 
  *
 
- * @param {array, value} collection: takes in an array in the  function parameter
+ * @param {array} collection: takes in an array in the  function parameter
 
  * @param {value}: the target that will be checked against the array by the function
 
- * @param {function} action; checks if value is in array, loops thru array and returns index
+ * .indexOf; checks if value is in array, loops thru array and returns index
 
  * of the first occurance of value input
 
@@ -234,7 +238,7 @@ module.exports.each = each;
 
  * @param {array} collection: an array collection
 
- * @param {function}action: loops thru array and gets all elements while leaving copies
+ * .unique action: called on each element of input array and gets all elements while leaving copies
 
  * @returns{array}; returns the collection with duplicates removed
 
@@ -262,7 +266,7 @@ module.exports.unique = unique;
 
  * @param{array} collection: array is passed in arguments
 
- * @param{function} this is a tester function that is passed in the parameter. action: loops
+ * @param{function} this is a tester function that is that is called on each element in the input array
 
  * @returns{array}return a new array of elements for which calling function returned true
 
@@ -314,13 +318,13 @@ module.exports.reject = reject;
 
 /**partition: Split list into two arrays: one whose elements all satisfy truthy
 
- * and one whose elements all do not truthy.Call <function> for each element in <array> passing it the arguments:
+ * and one whose elements do not return truthy result when passed to the input function. Call <function> for each element in <array> passing it the arguments:
 
  * element, key, <array>
 
  * @param{array} collection: takes in array
 
- * @param{function}action: calls element, key and array, and loops
+ * @param{function}action: calls element, key and array, and function is called on each element
 
  * @returns{array} returns 2 arrays. one truthy and one falsey
 
@@ -420,7 +424,7 @@ module.exports.pluck = pluck;
 
  * @param{array or object} collection: takes in a collection
 
- * @param{function} action: a tester function checks what type of collection, loops thru looking for truthy returns
+ * @param{function} action: a tester function checks what type of collection, called on each element in input array looking to see if every value returns truthy
 
  * @returns{boolean};  returns true if all itterations are true or false at the 1st faalse return
 
@@ -516,7 +520,7 @@ module.exports.some = some;
 
  * @param{array}collection: takes an array
 
- * @param{function}action: loops starting at seed (index num or string"") then adds in each itteration to previous
+ * @param{function}action: called on each element starting at seed (index num or string"") then adds in each iteration to previous
 
  * @param{seed}: tells the function where to start iterating from in the collection, value to initialize the accumulator value in your combine function
 
@@ -557,10 +561,6 @@ module.exports.reduce = reduce;
  * order they are given
 
  * @param{object, object1, object2...}takes in multiple objects
-
- * @param{function}action: a tester function that makes copies of objects and passes them into one object. makes for future additions
-
- *                          in order
 
  * @returns{object}: returns object with other objects added in the order they are passed in
 
