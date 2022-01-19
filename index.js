@@ -90,7 +90,8 @@ module.exports.typeOf = typeOf;
 
  * @param {number}: number of items to be returned
 
- * @returns {any data type}: returns the first element in an array
+ * @returns {any data type}: returns the input number of indexes in input array, starting from the first
+
 
  */
 
@@ -126,7 +127,7 @@ module.exports.first = first;
 
  * @param {function} action: tester function checks if array is array and if number is not null and a positive num or NaN
 
- * @returns {any data type}: returns last element of array
+ * @returns {any data type}: returns input number of index values in input array starting from  last element of array
 
  */
 
